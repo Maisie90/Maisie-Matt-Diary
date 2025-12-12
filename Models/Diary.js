@@ -4,7 +4,7 @@ const db = require('./db');
 exports.addEntry =  async ({id, date, time, category, diary_entry})=>{
     const result = await db.query(
         `INSERT INTO diary (id, date, time, category, diary_entry)
-         VALUES ($1, $2, $3, $4)
+         VALUES ($1, $2, $3, $4, $5)
          RETURNING *`,
          [id, date, time, category, diary_entry]
     );
