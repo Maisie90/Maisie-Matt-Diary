@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diary App</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="home.js" defer></script>
+  </head>
+  <body>
+
+    <!-- Header section -->
+    <header>
+      <h1>Welcome to Your Diary</h1>
+
+      <div class="search-container">
+        <input type="text" id="searchField" placeholder="Search entries..." />
+        <button id="searchButton">Search</button>
+      </div>
+    </header>
+
+    <!-- Main content section -->
+    <main>
+      <section class="diary-entry">
+        <h2>Create a New Diary Entry</h2>
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+          <option value="" disabled selected>Select a category...</option>
+          <option value="personal">Personal</option>
+          <option value="work">Work</option>
+          <option value="hobby">Hobby</option>
+          <option value="exercise">Exercise</option>
+          <option value="other">Other</option>
+        </select>
+        <br><br>
+        <label for="entryText">Your Thoughts:</label>
+        <textarea id="entryText" placeholder="Write something..."></textarea>
+        <button id="saveEntry">Save Entry</button>
+      </section>
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+      <p>Footer content goes here</p>
+    </footer>
+  </body>
+</html>
