@@ -1,4 +1,4 @@
-const db = require("./db");
+const db = require("../db/connect.js");
 
 class Diary {
   constructor({ id, date, time, category, diary_entry }) {
@@ -9,12 +9,12 @@ class Diary {
     this.diary_entry = diary_entry;
   }
 
-  static addEntry = async ({ id, date, time, category, diary_entry }) => {
+  static addEntry = async ({ category, diary_entry }) => {
     const result = await db.query(
-      `INSERT INTO diary (id, date, time, category, diary_entry)
-         VALUES ($1, $2, $3, $4, $5)
+      `INSERT INTO diary (category, diary_entry)
+         VALUES ($1, $2)
          RETURNING *`,
-      [id, date, time, category, diary_entry]
+      [category, diary_entry]
     );
     return result.rows[0];
   };
@@ -37,7 +37,7 @@ class Diary {
   static searchByCategory = async (category) => {
     const result = await db.query(
       `SELECT * FROM diary
-        WHERE category LIKE $1 
+        WHERE LOWER(category) LIKE LOWER($1) 
         ORDER BY date DESC, time DESC`,
       [`%${category}%`]
     );

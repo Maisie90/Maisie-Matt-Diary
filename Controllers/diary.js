@@ -35,7 +35,7 @@ exports.searchByCategory = async (req, res) => {
         res.status(500).json({ error: 'Failed to search diary entries' });
     }
 }
-exports.updateEntry = async (re, res) => {
+exports.updateEntry = async (req, res) => {
     try {
         const { id } = req.params;
         const { diary_entry } = req.body;
