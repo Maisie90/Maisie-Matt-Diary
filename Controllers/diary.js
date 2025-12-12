@@ -1,4 +1,5 @@
 const Diary = require('../Models/Diary');
+
 exports.addEntry = async (req, res) => {
     try {
         const { id, date, time, category, diary_entry } = req.body;
