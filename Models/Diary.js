@@ -1,26 +1,26 @@
 const { text } = require('express');
 const db = require('./db');
 
-exports.addEntry =  async ({entry_date, entry_time, category, text})=>{
+exports.addEntry =  async ({id, date, time, category, diary_entry})=>{
     const result = await db.query(
-        `INSERT INTO diary_entries (entry_date, entry_time, category, text)
+        `INSERT INTO diary (id, date, time, category, diary_entry)
          VALUES ($1, $2, $3, $4)
          RETURNING *`,
-         [entry_date, entry_time, category, text]
+         [id, date, time, category, diary_entry]
     );
     return result.rows[0];
 }
 
 exports.getAllEntries = async () => {
     const result = await db.query(
-        `SELECT * FROM diary_entries ORDER BY entry_date DESC, entry_time DESC`
+        `SELECT * FROM diary ORDER BY date DESC, time DESC`
     );
     return result.rows;
 }
 
 exports.deleteEntry = async (id) => {
     const result = await db.query(
-        `DELETE FROM diary_entries WHERE id = $1 RETURNING *`,
+        `DELETE FROM diary WHERE id = $1 RETURNING *`,
         [id]
     );
     return result.rows[0];
@@ -28,21 +28,21 @@ exports.deleteEntry = async (id) => {
 
 exports.searchByCategory = async (category) => {
     const result = await db.query(
-        `SELECT * FROM diary_entries 
+        `SELECT * FROM 
         WHERE category LIKE $1 
-        ORDER BY entry_date DESC, entry_time DESC`,
+        ORDER BY date DESC, time DESC`,
         [`%${category}%`]
     );
     return result.rows;
 }
 
-exports.updateEntry = async (id, text) => {
+exports.updateEntry = async (id, diary_entry) => {
     const result = await db.query(
-        `UPDATE dairy_entries 
-        SET text = $1 
+        `UPDATE diary
+        SET diary_entry = $1 
         WHERE id = $2 
         RETURNING *`,
-        [text, id]
+        [diary_entry, id]
     );
     return result.rows[0]; 
 }
