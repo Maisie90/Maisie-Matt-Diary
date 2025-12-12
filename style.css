@@ -1,0 +1,101 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fafafa;
+}
+
+/* Header */
+header {
+    background: #ffcad4;
+    padding: 25px;
+    text-align: center;
+    border-bottom: 3px solid #ff9aa2;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+}   
+/* Search Bar */
+.search-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.search-container input {
+    padding: 8px 12px;
+    width: 220px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    font-size: 1rem;
+}   
+.search-container button {
+    padding: 8px 15px;
+    background: #ff9aa2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.search-container button:hover {
+    background: #ff758f;
+}
+
+/* Main content */
+main {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+/* Diary entry box */
+.diary-entry {
+    background: #fff;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.diary-entry h2 {
+    margin-top: 0;
+    color: #ff6f91;
+}
+
+.diary-entry input, .diary-entry textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.diary-entry textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.diary-entry button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #ff9aa2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.diary-entry button:hover {
+    background: #ff758f;
+}
+
+/* Footer */
+footer {
+    background: #ffcad4;
+    text-align: center;
+    padding: 15px;
+    border-top: 3px solid #ff9aa2;
+}
