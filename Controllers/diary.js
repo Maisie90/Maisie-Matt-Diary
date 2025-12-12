@@ -37,7 +37,7 @@ exports.searchByCategory = async (req, res) => {
 }
 exports.updateEntry = async (req, res) => {
     try {
-        const { id } = req.params;
+        const id = parseInt(req.params.id);
         const { diary_entry } = req.body;
         const updatedEntry = await Diary.updateEntry(id, diary_entry);
         res.status(200).json(updatedEntry);

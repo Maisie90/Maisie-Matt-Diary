@@ -44,7 +44,7 @@ class Diary {
     return result.rows;
   };
 
-  updateEntry = async (id, diary_entry) => {
+  static updateEntry = async (id, diary_entry) => {
     const result = await db.query(
       `UPDATE diary
         SET diary_entry = $1 
